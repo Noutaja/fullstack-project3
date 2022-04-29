@@ -39,6 +39,7 @@ app.get("/api/getall", (req, res) => {
 	var search = bodyParameters(req);
 	search.title = new RegExp(search.title); //Convert basic search into regex for partial matching
 	search.limit = {limit: req.body.limit}; //Limit the number results
+	search.poster = null; //Disallow searching for poster urls
 
 	Movie.find(search,null,search.limit, (err, results) => {
 		if (err) {
@@ -74,7 +75,7 @@ app.post("/api/add", (req, res) => {
 	if (!details.poster) {
 		details.poster = "https://vectorified.com/images/image-placeholder-icon-7.png"
 	}
-	
+
 	var newMovie = new Movie(details)
 	newMovie.save()
 		.then(() => { res.status(201).json("Added " + details.title + " (" + details.year + ")") })
