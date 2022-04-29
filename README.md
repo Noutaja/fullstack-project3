@@ -15,6 +15,7 @@
  
  ## API routes
  All parameters besides id(url parameter) are read from request body parameters.
+ * id
  * title
  * year
  * poster
