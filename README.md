@@ -8,9 +8,9 @@
  * Search movies either by id, or search parameters
  * Add movie
  * Change movie information
-  * Title
-  * Year
-  * Poster url
+   * Title
+   * Year
+   * Poster url
  * Delete movie
  
  ## API routes
