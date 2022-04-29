@@ -1,6 +1,6 @@
 "use strict";
 
-//INITIALIZING ENVIRONMENT VARIABLES, FRAMEWORKS AND TOOLS
+//ENVIRONMENT VARIABLES, FRAMEWORKS AND TOOLS
 require('dotenv').config();
 
 var express = require("express");
@@ -38,10 +38,11 @@ const Movie = mongoose.model("Movie", movieSchema, "movies");
 app.get("/api/getall", (req, res) => {
 	var search = bodyParameters(req);
 	search.title = new RegExp(search.title); //Convert basic search into regex for partial matching
-	search.limit = {limit: req.body.limit}; //Limit the number results
-	search.poster = null; //Disallow searching for poster urls
+	delete search.poster; //Disallow searching for poster urls
 
-	Movie.find(search,null,search.limit, (err, results) => {
+	var limitResults = { limit: req.body.limit }; //Limit the number results
+
+	Movie.find(search, null, limitResults, (err, results) => {
 		if (err) {
 			res.status(500).json("Internal error!");
 		} else if (results.length === 0) {

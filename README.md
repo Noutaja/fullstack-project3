@@ -22,7 +22,7 @@
  * limit
 
  ### /api/getall
- The basic search. Supports searching for a title and release year. Number of search results can be limited via a parameter. If not limited, all matching results are returned.
+ The basic search. Supports searching for a title and release year. Number of search results can be limited via a parameter. If not limited, all matching results are returned (The WHOLE DATABASE if no other search parameters provided).
 
  ### /api/:id
  Search by id
