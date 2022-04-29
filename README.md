@@ -1,5 +1,5 @@
 # fullstack-project3
- A movie API. A school project
+ A movie API. Done using NodeJS and MongoDB. A school project
 
  ## Setup
  Add a MongoDB database uri as an environment variable: URI=(db uri)
